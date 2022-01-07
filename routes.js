@@ -9,14 +9,14 @@ const router = express.Router()
 
 router.get("/posts", async (req, res) => {
 
-    const posts = await Post.find()
+    const post = await Post.find()
 
-    res.send(posts)
+    res.send(post)
 
 })
-router.get("/posts/:id", async (req, res) => {
+router.get("/posts/:item", async (req, res) => {
 
-    const post = await Post.findOne({ _id: req.params.id })
+    const post = await Post.findOne({ _id: req.params.item })
 
     res.send(post)
 

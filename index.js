@@ -11,6 +11,7 @@ mongoose
 
     .then(() => {
 
+        console.log("connected")
         const app = express()
 
         app.use("/api", routes) // new
