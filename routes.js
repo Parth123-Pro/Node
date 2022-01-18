@@ -5,8 +5,7 @@ const Post = require("./models/Post") // new
 const router = express.Router()
 
 
-// Get all posts
-
+// Get Method
 router.get("/posts", async (req, res) => {
 
     const post = await Post.find()
@@ -14,13 +13,29 @@ router.get("/posts", async (req, res) => {
     res.send(post)
 
 })
-router.get("/posts/:item", async (req, res) => {
 
-    const post = await Post.findOne({ _id: req.params.item })
+//Post Method
+router.post("/posts/add",async(req,res)=>{
+    const ipost = new POST({
+        item:req.body.item,
+        qty:req.body.qty
+    })
 
-    res.send(post)
+    await ipost.save((err,msg)=>{
+        if(err){
+            res.status(500).json({
+                "error":err
+            })
+        }
+        else{
+            res.status(200).json({
+                "My-message":msg
+            })
+        }
+    })
 
 })
+
 
 
 module.exports = router
