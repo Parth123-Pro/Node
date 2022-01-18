@@ -2,8 +2,9 @@ const express = require("express")
 
 const mongoose = require("mongoose")
 
-const routes = require("./routes") // new
+const routes = require("./routes") 
 
+var bodyParser =require('body-parser')
 
 mongoose
 
@@ -13,7 +14,7 @@ mongoose
 
         console.log("connected")
         const app = express()
-
+app.use(bodyParser.urlencoded({extended:false}))
         app.use("/api", routes) // new
 
 
@@ -23,4 +24,6 @@ mongoose
 
         })
 
-    })
+   }).catch((e)=>{
+    console.log(e.toString())
+})
