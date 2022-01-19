@@ -15,7 +15,7 @@ router.get("/posts", async (req, res) => {
 })
 
 //Post Method
-router.post("/posts/add",async(req,res)=>{
+router.post("/posts",async(req,res)=>{
     const ipost = new POST({
         item:req.body.item,
         qty:req.body.qty
