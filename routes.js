@@ -16,7 +16,7 @@ router.get("/posts", async (req, res) => {
 
 //Post Method
 router.post("/posts",async(req,res)=>{
-    const ipost = new POST({
+    const ipost = new Post({
         item:req.body.item,
         qty:req.body.qty
     })
